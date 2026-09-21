@@ -1,26 +1,41 @@
-﻿int n = int.Parse(Console.ReadLine());
+﻿
 
-int currentNum = 1;
+double priceForParty= double.Parse(Console.ReadLine());
+int numPoslanie= int .Parse(Console.ReadLine());    
+int numRose= int .Parse(Console.ReadLine());    
+int numKluch= int .Parse(Console.ReadLine());    
+int numCaricat= int .Parse(Console.ReadLine());    
+int numSuprice= int .Parse(Console.ReadLine());
 
-for (int row = 0; row  <= n; row ++)
+double moneyPOslanie = numPoslanie * 0.60;
+double moneyRose = (numRose * 7.20);
+double moneyKluch = numKluch * 3.60;
+double moneyCapr = numCaricat * 18.20;
+double moneySyprice = numSuprice * 22.00;
+
+
+
+
+double money = moneyPOslanie + moneyRose + moneyKluch + moneyCapr + moneySyprice;
+
+int allArticuls= numPoslanie+numRose+numKluch+ numCaricat+numSuprice;
+
+if (allArticuls>=25)
 {
-	for (int col = 1; col <= row; col++)
-	{
-		Console.Write($"{currentNum} ");
-		currentNum++;
-
-		if (currentNum>n)
-		{ 
-			break;
-		
-		}	
-
-	} 
-	
-	Console.WriteLine();
-
-	if (currentNum > n)
-	{
-		break;
-	}
+    money= money - (money*0.35);
 }
+else
+{
+    money = money;
+}
+
+double casting = 0.1 * money;
+
+double win= money - casting;
+
+if (win > priceForParty)
+
+    Console.WriteLine($"Yes! {win - priceForParty:f2} lv left.");
+
+else
+    Console.WriteLine($"Not enough money! {priceForParty - win:f2} lv needed.");
