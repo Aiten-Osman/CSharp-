@@ -1,26 +1,15 @@
-﻿int n = int.Parse(Console.ReadLine());
+﻿int firstPlayer= int.Parse(Console.ReadLine());
+int secondPlayer=int.Parse(Console.ReadLine());
+int thirdPlayer= int.Parse(Console.ReadLine());
 
-int currentNum = 1;
+int sumSeconds= firstPlayer+ secondPlayer+ thirdPlayer; 
 
-for (int row = 0; row  <= n; row ++)
+int minutes = sumSeconds / 60;    
+int seconds= sumSeconds % 60;
+
+if (seconds < 10)
 {
-	for (int col = 1; col <= row; col++)
-	{
-		Console.Write($"{currentNum} ");
-		currentNum++;
-
-		if (currentNum>n)
-		{ 
-			break;
-		
-		}	
-
-	} 
-	
-	Console.WriteLine();
-
-	if (currentNum > n)
-	{
-		break;
-	}
+    Console.WriteLine($"{minutes}:0{seconds}");
 }
+else
+Console.WriteLine($"{minutes}:{seconds}");
